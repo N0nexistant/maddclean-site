@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Submissions</title>
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #3b82f6;
+      --bg-color: #f9fafb;
+      --text-color: #111827;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .submission-list {
+      margin-top: 1.5rem;
+    }
+
+    .submission {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f9fafb;
+    }
+
+    .submission strong {
+      color: var(--primary-color);
+    }
+
+    .empty-state {
+      text-align: center;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+
+    button.clear-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button.clear-btn:hover {
+      background-color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Form Submissions</h1>
+  <p>View all submitted bookings from your auto detailing form</p>
+</header>
+
+<div class="container">
+  <h2>Booking Submissions</h2>
+
+  <div class="submission-list" id="submission-list">
+    <!-- Booking submissions will appear here -->
+  </div>
+
+  <div class="actions">
+    <button class="clear-btn" onclick="clearSubmissions()">Clear All</button>
+  </div>
+</div>
+
+<script>
+  function loadSubmissions() {
+    const submissionList = document.getElementById('submission-list');
+    const submissions = JSON.parse(localStorage.getItem('bookings')) || [];
+
+    if (submissions.length === 0) {
+      submissionList.innerHTML = '<p class="empty-state">No submissions found.</p>';
+      return;
+    }
+
+    submissionList.innerHTML = '';
+
+    submissions.forEach((booking, index) => {
+      const div = document.createElement('div');
+      div.className = 'submission';
+      div.innerHTML = `
+        <p><strong>Full Name:</strong> ${booking.name}</p>
+        <p><strong>Email:</strong> ${booking.email}</p>
+        <p><strong>Address:</strong> ${booking.address}</p>
+        <p><strong>Service:</strong> ${capitalizeFirstLetter(booking.package)}</p>
+        <p><strong>Vehicle:</strong> ${capitalizeFirstLetter(booking.vehicle)}</p>
+        <p><strong>Carpet Shampoo:</strong> ${booking.carpetShampoo ? 'Yes' : 'No'}</p>
+        <p><strong>Date:</strong> ${booking.date}</p>
+        <p><strong>Time:</strong> ${booking.time}</p>
+        <p><strong>Total Price:</strong> ${booking.price}</p>
+      `;
+      submissionList.appendChild(div);
+    });
+  }
+
+  function clearSubmissions() {
+    if (confirm("Are you sure you want to delete all submissions?")) {
+      localStorage.removeItem('bookings');
+      loadSubmissions();
+    }
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  // Load submissions on page load
+  window.onload = loadSubmissions;
+</script>
+
+</body>
+</html>
