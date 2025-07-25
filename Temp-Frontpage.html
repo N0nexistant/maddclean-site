@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Premium auto detailing services with before & after transformation and transparent pricing." />
+  <title>MaddClean Detailing | A type clean that makes your car feel all new</title>
+  <link rel="shortcut icon" type="image/x-icon" href="MC-LOGO.PNG" />
+
+  <!-- Google Fonts: Inter (clean UI) + Space Grotesk (modern headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+      color: #e0e0e0;
+      background-color: #0a0a0a;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #64c8ff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: #aaaaaa;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Header */
+    header {
+      padding: 1.5rem 0;
+      background-color: #0f0f0f;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: #64c8ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #dddddd;
+    }
+
+    nav a:hover {
+      color: #64c8ff;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, #111111 0%, #0a0a0a 100%);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 1rem auto 2.5rem;
+      color: #bbbbbb;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #64c8ff;
+      color: #000;
+      padding: 1rem 2.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(100, 200, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #50b8ff;
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(100, 200, 255, 0.4);
+    }
+
+    /* Before & After */
+    .before-after {
+      padding: 6rem 0;
+      background-color: #0d0d0d;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .ba-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .ba-item img {
+      border-bottom: 1px solid #333;
+    }
+
+    .ba-caption {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #999;
+    }
+
+    .ba-label {
+      font-weight: 600;
+      color: #64c8ff;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 6rem 0;
+      background-color: #0a0a0a;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .price-card {
+      background: #111111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      border-color: #64c8ff;
+    }
+
+    .price-card.popular {
+      border: 2px solid #64c8ff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-card.popular::before {
+      content: "Most Popular";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #64c8ff;
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price-card h3 {
+      color: #ffffff;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #64c8ff;
+      margin: 1rem 0;
+    }
+
+    .price-period {
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    .features {
+      list-style: none;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    .features li {
+      margin: 0.5rem 0;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #64c8ff;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+
+    .price-button {
+      display: inline-block;
+      background: #222;
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid #444;
+      transition: all 0.3s;
+    }
+
+    .price-button:hover {
+      background: #64c8ff;
+      border-color: #64c8ff;
+      color: #000;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3.5rem 0;
+      background-color: #080808;
+      color: #777;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid #222;
+    }
+
+    footer a {
+      color: #64c8ff;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+h6 {
+    color: rgb(236, 85, 85);
+}
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .hero, .before-after, .pricing, footer {
+        padding: 4rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo"><img src="MaddClean.PNG" alt="MaddClean"></a>
+     <!--<nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#before-after">Gallery</a></li>
+          <li><a href="#pricing">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>-->
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>MaddClean Auto Detailng</h1>
+      <p>Premium Detailing with quality products and years of experience. See and feel the difference.</p>
+      <h3>We offer 10% off for Cash Payments!</h3>
+    <!-- <a href="#pricing" class="cta-button">View Packages</a> -->
+    </div>
+  </section>
+
+  <!-- Before & After 
+  <section class="before-after" id="before-after">
+    <div class="container">
+      <h2>Real Results</h2>
+      <div class="gallery">
+        <div class="ba-item">
+          <img src="https://via.placeholder.com/600x400/111/333?text=Before+1" alt="Car before detailing" />
+          <div class="ba-caption">
+            <span class="ba-label">Before</span>
+          </div>
+        </div>
+        <div class="ba-item">
+          <img src="https://via.placeholder.com/600x400/1a1a1a/64c8ff?text=After+1" alt="Car after detailing" />
+          <div class="ba-caption">
+            <span class="ba-label">After</span>
+          </div>
+        </div>
+        <div class="ba-item">
+          <img src="https://via.placeholder.com/600x400/111/333?text=Before+2" alt="Interior before" />
+          <div class="ba-caption">
+            <span class="ba-label">Before</span>
+          </div>
+        </div>
+        <div class="ba-item">
+          <img src="https://via.placeholder.com/600x400/1a1a1a/64c8ff?text=After+2" alt="Interior after" />
+          <div class="ba-caption">
+            <span class="ba-label">After</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2>Detailing Packages</h2>
+      <div class="pricing-cards">
+        <!-- Exterior -->
+        <div class="price-card">
+          <h3>Exterior Wash</h3>
+          <div class="price">$50<span class="price-period">/session</span></div>
+          <ul class="features">
+            <li>Two Bucket Wash Method</li>
+            <li>Wheel Clean with Iron Removing spray</li>
+            <li>Tire Dressing</li>
+            <li>Trim Dressing</li>
+          </ul>
+        </div>
+
+        <!-- Standard (Popular) -->
+        <div class="price-card popular">
+          <h3>Standard Detail</h3>
+          <div class="price">$80<span class="price-period">/session</span></div>
+          <ul class="features">
+            <li>Two Bucket Ceramic wash</li>
+            <li>Steam Clean Sanitation</li>
+            <li>Complete Interior Vaccum</li>
+            <li>Tire and Plastics Dressing</li>
+            <li>Wheel Cleaning</li>
+          </ul>
+        </div>
+        <!-- Interior -->
+        <div class="price-card">
+          <h3>Interior Clean</h3>
+          <div class="price">$50<span class="price-period">/session</span></div>
+          <ul class="features">
+            <li>Steam Clean Plastics with hard to remove gunk</li>
+            <li>Dash and plastics wipe down and detail</li>
+            <li>complete interior vaccum</li>
+          </ul>
+        </div>
+        <div class="price-card">
+            <h3>Seat And Carpet Shampoo</h3>
+            <div class="price">$20<span class="price-period"> Add-on</Add-on></span></div>
+            <ul class="features">
+              <li>Seat and Carpet Stain Removal</li>
+              <li>Add to interior clean or full detail package</li>
+              <li>Full Carpet and Seat Shampoo</li>
+              <H6>If this package is selected you must have your windows slightly open to allow interior fabrics to fully dry.</H6>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <p>&copy; <span id="year">2025</span> Madd Clean Auto Detailing. All rights reserved.</p>
+      <p>Contact: <a href="mailto:maddcleandetailing@gmail.com">maddcleandetailing@gmail.com</a> </p>
+      <p>Serving the 575 area. Mobile service available.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
