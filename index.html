@@ -83,15 +83,17 @@
 
     /* Header */
     header {
+      padding: 1.5rem 0;
       background-color: #0f0f0f;
       box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+      position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .header-content {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
     }
 
@@ -99,12 +101,11 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #ffffff;
+      margin: auto;
       display: block;
-      width: 30%;
-      height: 8%;
+      width: 25%;
     }
 
-    
     .logo span {
       color: #64c8ff;
     }
@@ -342,6 +343,29 @@ h6 {
         padding: 4rem 0;
       }
     }
+    a {
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  color: #54b3d6;
+  padding: 0 .25rem;
+  margin: 0 -.25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a:hover {
+  color: #fff;
+  box-shadow: inset 250px 0 0 0 #54b3d6;;
+}
+
+/* Presentational styles */
+a {
+  color: #54b3d6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+
   </style>
 </head>
 <body>
@@ -366,7 +390,14 @@ h6 {
     <div class="container">
       <h1>MaddClean Auto Detailng</h1>
       <p>Premium Detailing with quality products and years of experience. See and feel the difference.</p>
-      <h3>Book Your appointment Today! Text (575)339-4906 For quotes and Scheduling!</h3>
+      <h3>Online Booking Coming Soon!</h3>
+
+      <h3>Text</h3>
+       <h3> <a>(575)339-4906</a> </h3>
+      <h3>to Book Your Appointment Today! </h3>
+
+     <h3>our instagram</h3> 
+     <h3> <a href="https://www.instagram.com/maddcleandetailing/">MaddClean Detailing</a></h3>
     <!-- <a href="#pricing" class="cta-button">View Packages</a> -->
     </div>
   </section>
@@ -412,40 +443,54 @@ h6 {
         <!-- Exterior -->
         <div class="price-card">
           <h3>Exterior Wash</h3>
-          <div class="price">$50<span class="price-period">/session</span></div>
+          <div class="price">$50-$70<span class="price-period">/session</span></div>
           <ul class="features">
             <li>Two Bucket Wash Method</li>
-            <li>Wheel Clean with Iron Removing spray</li>
+            <li>Wheel Clean with Iron oxide remover</li>
             <li>Tire Dressing</li>
             <li>Trim Dressing</li>
+            <h4>Coupe/Sedan = $50</h4>
+            <h4>Trucks = $60</h4>
+            <h4>SUV/Van = $70</h4>
+            <h5>Price May Vary Depending on size of the vehicle</h5>
           </ul>
         </div>
 
         <!-- Standard (Popular) -->
         <div class="price-card popular">
           <h3>Standard Detail</h3>
-          <div class="price">$80<span class="price-period">/session</span></div>
+          <div class="price">$80-$120<span class="price-period">/session</span></div>
           <ul class="features">
             <li>Two Bucket Ceramic wash</li>
             <li>Steam Clean Sanitation</li>
             <li>Complete Interior Vaccum</li>
             <li>Tire and Plastics Dressing</li>
             <li>Wheel Cleaning</li>
+            <h4>Coupe/Sedan = $80</h4>
+            <h4>Trucks = $100</h4>
+            <h4>SUV/Van = $120</h4>
+            <h5>Price May Vary Depending on the size of the vehicle</h5>
+
+
           </ul>
         </div>
         <!-- Interior -->
         <div class="price-card">
           <h3>Interior Clean</h3>
-          <div class="price">$50<span class="price-period">/session</span></div>
+          <div class="price">$50-$70<span class="price-period">/session</span></div>
           <ul class="features">
             <li>Steam Clean Plastics with hard to remove gunk</li>
             <li>Dash and plastics wipe down and detail</li>
             <li>complete interior vaccum</li>
+            <h4>Coupe/Sedan = $50</h4>
+            <h4>Trucks = $60</h4>
+            <h4>SUV/Van = $70</h4>
+            <h5>Price May Vary Depending on size of the vehicle</h5>
           </ul>
         </div>
         <div class="price-card">
             <h3>Seat And Carpet Shampoo</h3>
-            <div class="price">$20<span class="price-period"> Add-on</Add-on></span></div>
+            <div class="price">$40<span class="price-period"> Add-on</Add-on></span></div>
             <ul class="features">
               <li>Seat and Carpet Stain Removal</li>
               <li>Add to interior clean or full detail package</li>
